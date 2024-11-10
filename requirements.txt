@@ -1,0 +1,24 @@
+anthropic==0.31.0
+chempy==0.9.0
+datasets==2.20.0
+langchain==0.0.275
+lmdb==1.5.1
+matplotlib==3.9.2
+molbloom==2.1.1
+numpy==1.24.3
+openai==1.35.13
+PubChemPy==1.0.4
+rdchiral==1.1.0
+rdkit==2023.9.5
+RXN4Chemistry==1.14.0
+scikit-learn==1.5.1
+scipy==1.13.1
+selfies==2.1.2
+STOUT-pypi @ git+https://github.com/btyu/Smiles-TO-iUpac-Translator.git
+tavily-python==0.3.3
+torch==1.13.1
+transformers==4.42.3
+# unicore==0.0.1
+wikipedia==1.4.0
+jupyter
+sentencepiece==0.2.0
