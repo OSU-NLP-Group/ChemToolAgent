@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>ChemAgent: Tooling or Not Tooling? The Impact of Tools on Language Agents for Chemistry Problem Solving</title>
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://kit.fontawesome.com/f8ddf9854a.js" crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="ChemAgent is a language agent equipped with 29 tools, designed for a wide range of chemistry tasks. We evaluate it on both specialized chemistry tasks and general chemistry questions, and the results show that augmenting LLMs with tools may not consistently lead to better performance.">
+  <meta name="keywords"
+    content="LLM, chemistry, language agent, artificial intelligence, AI, OSU">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> ChemAgent </title>
+
+  <link rel="icon" href="./static/images/icon_chemagent.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/leaderboard.css">
+
+  <!-- <link href="https://unpkg.com/tabulator-tables@5.5.2/dist/css/tabulator_bulma.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@5.5.2/dist/js/tabulator.min.js"></script> -->
+  <script type="text/javascript" src="static/js/sort-table.js" defer></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <script src="./static/js/question_card.js"></script>
+  <script src="./data/results/data_setting.js" defer></script>
+  <script src="./data/results/model_scores.js" defer></script>
+  <script src="./visualizer/data/data_public.js" defer></script>
+</head>
+
+<style>
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+  }
+</style>
+
+<body>
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://imageomics.github.io/bioclip/">
+              BioClip
+            </a>
+            <a class="navbar-item" href="https://osu-nlp-group.github.io/SeeAct/">
+              SeeAct
+            </a>
+            <a class="navbar-item" href="https://osu-nlp-group.github.io/TravelPlanner/">
+              TravelPlanner
+            </a>
+            <a class="navbar-item" href="https://osu-nlp-group.github.io/Mind2Web/">
+              Mind2Web
+            </a>
+            <a class="navbar-item" href="https://mmmu-benchmark.github.io/">
+              MMMU
+            </a>
+            <a class="navbar-item" href="https://osu-nlp-group.github.io/MagicBrush/">
+              MagicBrush
+            </a>
+            <a class="navbar-item" href="https://tiger-ai-lab.github.io/MAmmoTH/">
+              Mammoth
+            </a>
+            <a class="navbar-item" href="https://osu-nlp-group.github.io/TableLlama/">
+              TableLlama
+            </a>
+            <!--          </a>-->
+            <!--          -->
+            <!--          </a>-->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </nav>
+
+
+  <section class="hero">
+    <div class="hero-body" style="margin-bottom: 0;">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title is-bold">
+              <img src="static/images/icon_chemagent.png" style="width:1.25em; vertical-align: middle" alt="Logo" />
+              <span class="mmmu" style="vertical-align: middle">ChemAgent</span>
+            </h1>
+            <h2 class="subtitle is-3 publication-subtitle">
+              Tooling or Not Tooling? The Impact of Tools on Language Agents for Chemistry Problem Solving
+            </h2>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://btyu.github.io/">Botao Yu</a>,</span>
+              <span class="author-block">
+                <a href="https://linkedin.com/in/frazierbaker">Frazier N. Baker*</a>,</span>
+                <span class="author-block">
+                  <a href="https://ronch99.github.io/">Ziru Chen*</a>,</span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/garrett-herb-5647b0217/">Garrett Herb</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://boyugou.github.io/">Boyu Gou</a>,
+              </span>
+              <br>
+              <span class="author-block">
+                <a href="https://pharmacy.osu.edu/directory/daniel-adu-ampratwum">Daniel Adu-Ampratwum</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://u.osu.edu/ning.104/">Xia Ning</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://web.cse.ohio-state.edu/~sun.397/">Huan Sun</a>
+              </span>
+            </div>
+            <span class="author-block" style="font-size: 14px">*Equal contribution</span>
+            <p>{ yu.3737, baker.3239, chen.8336, herb.45, gou.43, adu-ampratwum.1, ning.104, sun.397 }@osu.edu</p>
+
+            <br>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">The Ohio State University</span>
+
+            </div>
+
+            <br>
+            <!--          <div class="is-size-5 publication-authors">-->
+            <!--            <span class="author-block">†Corresponding to:</span>-->
+            <!--            <span class="author-block"><a href="mailto:zheng.2372@osu.edu">zheng.2372@osu.edu</a></span>-->
+            <!--            <span class="author-block"><a href="mailto:su.809@osu.edu">sun.397@osu.edu</a>,</span>-->
+            <!--            <span class="author-block"><a href="mailto:su.809@osu.edu">su.809@osu.edu</a>,</span>-->
+            <!--          </div>-->
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/OSU-NLP-Group/ChemAgent" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container is-max-desktop">
+      <div class="box m-5">
+        <div class="content has-text-justified">
+          <!-- <p>
+            <strong>TL;DR</strong>: To comprehensively evaluate tool-augmented agent on chemistry problem-solving, this paper introduces ChemAgent, an advanced chemistry language agent, and assesses it on both <strong>specialized tasks</strong> and <strong>general chemistry questions</strong>. The findings show that while ChemAgent excels in specialized tasks, it <strong>doesn't consistently outperform base LLMs on general questions</strong>.
+              LLMs</strong>.
+          </p>
+          <p></p> -->
+          <p>
+            <strong>Abstract</strong>: To enhance large language models (LLMs) for chemistry problem solving, several LLM-based agents augmented with tools have been proposed, such as ChemCrow and Coscientist. However, their evaluations are narrow in scope, leaving a large gap in understanding the benefits of tools across diverse chemistry tasks. To bridge this gap, we develop <strong>ChemAgent, an enhanced chemistry agent</strong> over ChemCrow, and conduct a comprehensive evaluation of its performance on <strong>both specialized chemistry tasks and general chemistry questions</strong>. Surprisingly, ChemAgent does not consistently outperform its base LLMs without tools. Our error analysis with a chemistry expert suggests that: <strong>For specialized chemistry tasks, such as synthesis prediction, we should augment agents with specialized tools}; however, for general chemistry questions like those in exams, agents' ability to reason correctly with chemistry knowledge matters more, and tool augmentation does not always help.</strong>
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+      <h1 class="title is-1 mmmu">
+        <span class="mmmu" style="vertical-align: middle">ChemAgent</span>
+      </h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <!-- <h2 class="title is-3">Overview of SMolInstruct</h2> -->
+          <div class="container is-max-desktop">
+            <div class="content has-text-justified">
+              <p>
+                To explore and enhance the capabilities of agents in diverse and complex chemistry scenarios, we introduce ChemAgent, an advanced language agent designed for a wide range of chemistry tasks. It has a comprehensive set of 29 tools, including general tools (PythonREPL, WebSearch, etc.), molecule tools (name convertors, molecular property predictors, etc.), and reaction tools (ForwardSynthesis, Retrosynthesis).
+              </p>
+            </div>
+
+            <div class="columns is-centered">
+              <img style="width: 45%; padding: 2%;" src="./static/images/framework.png">
+              <img style="width: 50%; padding: 2%;" src="./static/images/tool_set.png">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+      <h1 class="title is-1 mmmu">
+        <!-- <img src="/static/images/llasmol.svg" style="width:1em;vertical-align: middle" alt="Logo" /> -->
+        <span class="mmmu" style="vertical-align: middle">Experiment</span>
+      </h1>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          
+          <div class="container is-max-desktop">
+            <div class="content has-text-justified">
+              <p>
+                The used datasets are listed in the table below.
+              </p>
+              <img style="width: 80%;" src="./static/images/tables/datasets.png" class="center">
+            </div>
+          </div>
+          <br>
+          <!-- <h2 class="title is-3">Overview Performance</h2> -->
+          <div class="container is-max-desktop">
+            <div class="content has-text-centered">
+              <p style="text-align:left">The following table shows the overall performance on the three datasets.</p>
+              <img style="width: 100%;" src="./static/images/tables/overall_performance.png" class="center">
+              <p></p>
+              <p style="text-align:left">To understand the errors that ChemAgent makes, for all the samples where ChemAgent (GPT) fails, we engage a chemistry expert to analyze the problem solving process and identify the errors, which are categorized into three types: <strong>reasoning error</strong>, <strong>grounding error</strong>, and <strong>tool error</strong>. The following bar charts show the error distribution.</p> 
+              <img style="width: 100%;" src="./static/images/error_analysis.png" class="center">
+              <p></p>
+              <p style="text-align:left"><strong>Main takeaways:</strong></p>
+              <p style="text-align:left">(1) The proposed ChemAgent can consistently outperform ChemCrow, a pioneer chemistry agent.</p>
+              <p style="text-align:left">(2) Compared to the base LLMs without tools, ChemAgent, with the help of the dedicated tools, <strong>can achieve much better performance on the specialized tasks</strong> in SMolInstruct. However, it suprisingly <strong>underperforms the base LLMs on general questions</strong> from MMLU-Chemistry and GPQA-Chemistry.</p>
+              <p style="text-align:left">
+                (3) The error analysis reveals that, on general chemistry questions, ChemAgent makes many <strong>reasoning errors</strong>, and it's underperformance is primarily due to <strong>delicate mistakes at intermediate stages of its problem-solving process</strong>, such as wrong reasoning steps and information oversight. Future research could improve LLM-based agents for chemistry by <strong>optimizing cognitive load and enhancing reasoning and information verification abilities</strong>. 
+              </p>
+
+              <p style="text-align:left">
+                Please check out our <a href="https://arxiv.org">paper</a> for more details. 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="hero is-light is-small">
+    <div class="hero-body has-text-centered">
+      <h1 class="title is-1 mmmu">
+        <!-- <img src="/static/images/llasmol.svg" style="width:1em;vertical-align: middle" alt="Logo" /> -->
+        <span class="mmmu" style="vertical-align: middle">Citation</span>
+      </h1>
+    </div>
+  </section>
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <!-- <h2 class="title is-3 has-text-centered">Citation</h2> -->
+      <p>If our paper or related resources are valuable to your research/applications, we kindly ask for citation. Please feel free
+        to contact us with any inquiries.</p>
+      <pre><code>@article{yu2024chemagent,
+    title={Tooling or Not Tooling? The Impact of Tools on Language Agents for Chemistry Problem Solving},
+    author={Botao Yu and Frazier N. Baker and Ziru Chen and Garrett Herb and Boyu Gou and Daniel Adu-Ampratwum and Xia Ning and Huan Sun},
+    journal={arXiv preprint arXiv:2411.xxxxx},
+    year={2024}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <!-- <div class="container"> -->
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is adapted from <a href="https://mmmu-benchmark.github.io/">MMMU</a>, <a
+              href="https://nerfies.github.io/">Nerfies</a> and <a href="https://mathvista.github.io/">MathVista</a>,
+            licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- </div> -->
+
+  </footer>
+
+  <style>
+    .hidden {
+      display: none;
+    }
+
+    .sortable:hover {
+      cursor: pointer;
+    }
+
+    .asc::after {
+      content: ' ↑';
+    }
+
+    .desc::after {
+      content: ' ↓';
+    }
+
+    #toggleButton {
+      background-color: #ffffff;
+      border: 1px solid #dddddd;
+      color: #555555;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 25px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition-duration: 0.4s;
+    }
+
+    #toggleButton:hover {
+      box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+      /* 鼠标悬停时的阴影效果 */
+    }
+
+    /*.results-carousel {*/
+    /*overflow: hidden;*/
+    /*}*/
+
+    /*.results-carousel .item {*/
+    /*margin: 5px;*/
+    /*overflow: hidden;*/
+    /*border: 1px solid #bbb;*/
+    /*border-radius: 10px;*/
+    /*padding: 0;*/
+    /*font-size: 0;*/
+    /*}*/
+
+    /*.results-carousel video {*/
+    /*margin: 0;*/
+    /*}*/
+
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 5px;
+      border: 1px solid #ddd;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      border-bottom: 2px solid #ddd;
+    }
+
+    td:hover {
+      background-color: #ffffff;
+    }
+  </style>
+
+</body>
+
+</html>
