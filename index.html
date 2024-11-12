@@ -71,8 +71,14 @@
             More Research
           </a>
           <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://osu-nlp-group.github.io/LLM4Chem/">
+              LlaSMol (chemistry LLMs)
+            </a>
             <a class="navbar-item" href="https://imageomics.github.io/bioclip/">
               BioClip
+            </a>
+            <a class="navbar-item" href="https://osu-nlp-group.github.io/UGround/">
+              UGround
             </a>
             <a class="navbar-item" href="https://osu-nlp-group.github.io/SeeAct/">
               SeeAct
@@ -80,14 +86,8 @@
             <a class="navbar-item" href="https://osu-nlp-group.github.io/TravelPlanner/">
               TravelPlanner
             </a>
-            <a class="navbar-item" href="https://osu-nlp-group.github.io/Mind2Web/">
-              Mind2Web
-            </a>
             <a class="navbar-item" href="https://mmmu-benchmark.github.io/">
               MMMU
-            </a>
-            <a class="navbar-item" href="https://osu-nlp-group.github.io/MagicBrush/">
-              MagicBrush
             </a>
             <a class="navbar-item" href="https://tiger-ai-lab.github.io/MAmmoTH/">
               Mammoth
@@ -105,6 +105,16 @@
     </div>
   </nav>
 
+  <style>
+    .sup2 {
+        position: relative;
+        top: -4px;
+        font-size: 13px;
+        font-family: 'Noto Sans', sans-serif;
+    }
+  </style>
+
+
 
   <section class="hero">
     <div class="hero-body" style="margin-bottom: 0;">
@@ -120,38 +130,38 @@
             </h2>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="https://btyu.github.io/">Botao Yu</a><sup>&dagger;</sup><sup style="font-size: 13px;">C</sup>,</span>
+                <a href="https://btyu.github.io/">Botao Yu</a><sup>&dagger;</sup><sup class="sup2">C</sup>,</span>
               <span class="author-block">
-                <a href="https://linkedin.com/in/frazierbaker">Frazier N. Baker</a><sup>*</sup><sup style="font-size: 13px;">CB</sup>,</span>
+                <a href="https://linkedin.com/in/frazierbaker">Frazier N. Baker</a><sup>*</sup><sup class="sup2">CB</sup>,</span>
                 <span class="author-block">
-                  <a href="https://ronch99.github.io/">Ziru Chen</a><sup>*</sup><sup style="font-size: 13px;">C</sup>,</span>
+                  <a href="https://ronch99.github.io/">Ziru Chen</a><sup>*</sup><sup class="sup2">C</sup>,</span>
               <span class="author-block">
-                <a href="https://www.linkedin.com/in/garrett-herb-5647b0217/">Garrett Herb</a><sup style="font-size: 13px;">C</sup>,
+                <a href="https://www.linkedin.com/in/garrett-herb-5647b0217/">Garrett Herb</a><sup class="sup2">C</sup>,
               </span>
               <span class="author-block">
-                <a href="https://boyugou.github.io/">Boyu Gou</a><sup style="font-size: 13px;">C</sup>,
+                <a href="https://boyugou.github.io/">Boyu Gou</a><sup class="sup2">C</sup>,
               </span>
               <br>
               <span class="author-block">
-                <a href="https://pharmacy.osu.edu/directory/daniel-adu-ampratwum">Daniel Adu-Ampratwum</a><sup style="font-size: 13px;">P</sup>,
+                <a href="https://pharmacy.osu.edu/directory/daniel-adu-ampratwum">Daniel Adu-Ampratwum</a><sup class="sup2">P</sup>,
               </span>
               <span class="author-block">
-                <a href="https://u.osu.edu/ning.104/">Xia Ning</a><sup style="font-size: 13px;">BCP</sup>,
+                <a href="https://u.osu.edu/ning.104/">Xia Ning</a><sup class="sup2">BCP</sup>,
               </span>
               <span class="author-block">
-                <a href="https://web.cse.ohio-state.edu/~sun.397/">Huan Sun</a><sup>&dagger;</sup><sup style="font-size: 13px;">C</sup>
+                <a href="https://web.cse.ohio-state.edu/~sun.397/">Huan Sun</a><sup>&dagger;</sup><sup class="sup2">C</sup>
               </span>
             </div>
-            <span class="author-block" style="font-size: 14px"><sup>*</sup>Equal contribution</span>
+            <span class="author-block" style="font-size: 14px"><sup>*</sup> Equal contribution</span>
             <br>
-            <span class="author-block" style="font-size: 14px"><sup>&dagger;</sup>Correspondence to: { yu.3737, sun.397 }@osu.edu</span>
+            <span class="author-block" style="font-size: 14px"><sup>&dagger;</sup> Correspondence to: { yu.3737, sun.397 }@osu.edu</span>
 
             <br>
 
             <div class="author-block">
-              <span class="author-block"><sup style="font-size: 13px;">C</sup>Department of Computer and Science Engineering, OSU</span><br>
-              <span class="author-block"><sup style="font-size: 13px;">B</sup>Department of Biomedical Informatics, OSU</span><br>
-              <span class="author-block"><sup style="font-size: 13px;">P</sup>College of Pharamacy, OSU</span><br>
+              <span class="author-block"><sup class="sup2">C</sup> Department of Computer and Science Engineering, OSU</span><br>
+              <span class="author-block"><sup class="sup2">B</sup> Department of Biomedical Informatics, OSU</span><br>
+              <span class="author-block"><sup class="sup2">P</sup> College of Pharamacy, OSU</span><br>
             </div>
 
             <br>
@@ -264,8 +274,8 @@
           <!-- <h2 class="title is-3">Overview Performance</h2> -->
           <div class="container is-max-desktop">
             <div class="content has-text-centered">
-              <p style="text-align:left">The following table shows the overall performance on the three datasets.</p>
-              <img style="width: 100%;" src="./static/images/tables/overall_performance.png" class="center">
+              <p style="text-align:left">The following table shows the overall performance on the specialized tasks (the SMolInstruct dataset) and the general questions (the MMLU-Chemistry and GPQA-Chemistry dataset).</p>
+              <img style="width: 90%;" src="./static/images/tables/overall_performance.png" class="center">
               <p></p>
               <p style="text-align:left">To understand the errors that ChemAgent makes, for all the samples where ChemAgent (GPT) fails, we engage a chemistry expert to analyze the problem solving process and identify the errors, which are categorized into three types: <strong>reasoning error</strong>, <strong>grounding error</strong>, and <strong>tool error</strong>. The following bar charts show the error distribution.</p> 
               <img style="width: 100%;" src="./static/images/error_analysis.png" class="center">
