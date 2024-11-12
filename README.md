@@ -46,7 +46,7 @@ If our paper or related resources prove valuable to your research, we kindly ask
 @article{yu2024chemagent,
     title={Tooling or Not Tooling? The Impact of Tools on Language Agents for Chemistry Problem Solving},
     author={Botao Yu and Frazier N. Baker and Ziru Chen and Garrett Herb and Boyu Gou and Daniel Adu-Ampratwum and Xia Ning and Huan Sun},
-    journal={arXiv preprint arXiv:2411.xxxxx},
+    journal={arXiv preprint arXiv:2411.07228},
     year={2024}
 }
 ```
