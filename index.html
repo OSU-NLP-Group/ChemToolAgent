@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>ChemAgent: Tooling or Not Tooling? The Impact of Tools on Language Agents for Chemistry Problem Solving</title>
+  <title>ChemToolAgent: The Impact of Tools on Language Agents for Chemistry Problem Solving</title>
   <style>
     .hidden {
       display: none;
@@ -12,11 +12,11 @@
   <script src="https://kit.fontawesome.com/f8ddf9854a.js" crossorigin="anonymous"></script>
   <meta charset="utf-8">
   <meta name="description"
-    content="ChemAgent is a language agent equipped with 29 tools, designed for a wide range of chemistry tasks. We evaluate it on both specialized chemistry tasks and general chemistry questions, and the results show that augmenting LLMs with tools may not consistently lead to better performance.">
+    content="ChemToolAgent is a language agent equipped with 29 tools, designed for a wide range of chemistry tasks. We evaluate it on both specialized chemistry tasks and general chemistry questions, and the results show that augmenting LLMs with tools may not consistently lead to better performance.">
   <meta name="keywords"
     content="LLM, chemistry, language agent, artificial intelligence, AI, OSU">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title> ChemAgent </title>
+  <title> ChemToolAgent </title>
 
   <link rel="icon" href="./static/images/icon_chemagent.png">
 
@@ -123,10 +123,10 @@
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title is-bold">
               <img src="static/images/icon_chemagent.png" style="width:1.25em; vertical-align: middle" alt="Logo" />
-              <span class="mmmu" style="vertical-align: middle">ChemAgent</span>
+              <span class="mmmu" style="vertical-align: middle">ChemToolAgent</span>
             </h1>
             <h2 class="subtitle is-3 publication-subtitle">
-              Tooling or Not Tooling? The Impact of Tools on Language Agents for Chemistry Problem Solving
+              The Impact of Tools on Language Agents for Chemistry Problem Solving
             </h2>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
@@ -185,7 +185,7 @@
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://github.com/OSU-NLP-Group/ChemAgent" target="_blank"
+                  <a href="https://github.com/OSU-NLP-Group/ChemToolAgent" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -203,12 +203,12 @@
       <div class="box m-5">
         <div class="content has-text-justified">
           <!-- <p>
-            <strong>TL;DR</strong>: To comprehensively evaluate tool-augmented agent on chemistry problem-solving, this paper introduces ChemAgent, an advanced chemistry language agent, and assesses it on both <strong>specialized tasks</strong> and <strong>general chemistry questions</strong>. The findings show that while ChemAgent excels in specialized tasks, it <strong>doesn't consistently outperform base LLMs on general questions</strong>.
+            <strong>TL;DR</strong>: To comprehensively evaluate tool-augmented agent on chemistry problem-solving, this paper introduces ChemToolAgent, an advanced chemistry language agent, and assesses it on both <strong>specialized tasks</strong> and <strong>general chemistry questions</strong>. The findings show that while ChemToolAgent excels in specialized tasks, it <strong>doesn't consistently outperform base LLMs on general questions</strong>.
               LLMs</strong>.
           </p>
           <p></p> -->
           <p>
-            <strong>Abstract</strong>: To enhance large language models (LLMs) for chemistry problem solving, several LLM-based agents augmented with tools have been proposed, such as ChemCrow and Coscientist. However, their evaluations are narrow in scope, leaving a large gap in understanding the benefits of tools across diverse chemistry tasks. To bridge this gap, we develop <strong>ChemAgent, an enhanced chemistry agent</strong> over ChemCrow, and conduct a comprehensive evaluation of its performance on <strong>both specialized chemistry tasks and general chemistry questions</strong>. Surprisingly, ChemAgent does not consistently outperform its base LLMs without tools. Our error analysis with a chemistry expert suggests that: <strong>For specialized chemistry tasks, such as synthesis prediction, we should augment agents with specialized tools}; however, for general chemistry questions like those in exams, agents' ability to reason correctly with chemistry knowledge matters more, and tool augmentation does not always help.</strong>
+            <strong>Abstract</strong>: To enhance large language models (LLMs) for chemistry problem solving, several LLM-based agents augmented with tools have been proposed, such as ChemCrow and Coscientist. However, their evaluations are narrow in scope, leaving a large gap in understanding the benefits of tools across diverse chemistry tasks. To bridge this gap, we develop <strong>ChemToolAgent, an enhanced chemistry agent</strong> over ChemCrow, and conduct a comprehensive evaluation of its performance on <strong>both specialized chemistry tasks and general chemistry questions</strong>. Surprisingly, ChemToolAgent does not consistently outperform its base LLMs without tools. Our error analysis with a chemistry expert suggests that: <strong>For specialized chemistry tasks, such as synthesis prediction, we should augment agents with specialized tools}; however, for general chemistry questions like those in exams, agents' ability to reason correctly with chemistry knowledge matters more, and tool augmentation does not always help.</strong>
           </p>
         </div>
 
@@ -220,7 +220,7 @@
   <section class="hero is-light is-small">
     <div class="hero-body has-text-centered">
       <h1 class="title is-1 mmmu">
-        <span class="mmmu" style="vertical-align: middle">ChemAgent</span>
+        <span class="mmmu" style="vertical-align: middle">ChemToolAgent</span>
       </h1>
     </div>
   </section>
@@ -233,7 +233,7 @@
           <div class="container is-max-desktop">
             <div class="content has-text-justified">
               <p>
-                To explore and enhance the capabilities of agents in diverse and complex chemistry scenarios, we introduce ChemAgent, an advanced language agent designed for a wide range of chemistry tasks. It has a comprehensive set of 29 tools, including general tools (PythonREPL, WebSearch, etc.), molecule tools (name convertors, molecular property predictors, etc.), and reaction tools (ForwardSynthesis, Retrosynthesis).
+                To explore and enhance the capabilities of agents in diverse and complex chemistry scenarios, we introduce ChemToolAgent, an advanced language agent designed for a wide range of chemistry tasks. It has a comprehensive set of 29 tools, including general tools (PythonREPL, WebSearch, etc.), molecule tools (name convertors, molecular property predictors, etc.), and reaction tools (ForwardSynthesis, Retrosynthesis).
               </p>
             </div>
 
@@ -274,17 +274,17 @@
           <!-- <h2 class="title is-3">Overview Performance</h2> -->
           <div class="container is-max-desktop">
             <div class="content has-text-centered">
-              <p style="text-align:left">The following table shows the overall performance on the specialized tasks (the SMolInstruct dataset) and the general questions (the MMLU-Chemistry and GPQA-Chemistry dataset).</p>
+              <p style="text-align:left">The following table shows the overall performance on the specialized tasks (the SMolInstruct dataset) and the general questions (the MMLU-Chemistry, SciBench-Chemistry and GPQA-Chemistry dataset).</p>
               <img style="width:80%;" src="./static/images/tables/overall_performance.png" class="center">
               <p></p>
-              <p style="text-align:left">To understand the errors that ChemAgent makes, for all the samples where ChemAgent (GPT) fails, we engage a chemistry expert to analyze the problem solving process and identify the errors, which are categorized into three types: <strong>reasoning error</strong>, <strong>grounding error</strong>, and <strong>tool error</strong>. The following bar charts show the error distribution.</p> 
+              <p style="text-align:left">To understand the errors that ChemToolAgent makes, for all the samples where ChemToolAgent (GPT) fails, we engage a chemistry expert to analyze the problem solving process and identify the errors, which are categorized into three types: <strong>reasoning error</strong>, <strong>grounding error</strong>, and <strong>tool error</strong>. The following bar charts show the error distribution.</p> 
               <img style="width: 100%;" src="./static/images/error_analysis.png" class="center">
               <p></p>
               <p style="text-align:left"><strong>Main takeaways:</strong></p>
-              <p style="text-align:left">(1) The proposed ChemAgent can consistently outperform ChemCrow, a pioneer chemistry agent.</p>
-              <p style="text-align:left">(2) Compared to the base LLMs without tools, ChemAgent, with the help of the dedicated tools, <strong>can achieve much better performance on the specialized tasks</strong> in SMolInstruct. However, it suprisingly <strong>underperforms the base LLMs on general questions</strong> from MMLU-Chemistry and GPQA-Chemistry.</p>
+              <p style="text-align:left">(1) The proposed ChemToolAgent can consistently outperform ChemCrow, a pioneer chemistry agent.</p>
+              <p style="text-align:left">(2) Compared to the base LLMs without tools, ChemToolAgent, with the help of the dedicated tools, <strong>can achieve much better performance on the specialized tasks</strong> in SMolInstruct. However, it suprisingly <strong>underperforms the base LLMs on general questions</strong> from MMLU-Chemistry, SciBench-Chemistry, and GPQA-Chemistry.</p>
               <p style="text-align:left">
-                (3) The error analysis reveals that, on general chemistry questions, ChemAgent makes many <strong>reasoning errors</strong>, and it's underperformance is primarily due to <strong>delicate mistakes at intermediate stages of its problem-solving process</strong>, such as wrong reasoning steps and information oversight. Future research could improve LLM-based agents for chemistry by <strong>optimizing cognitive load and enhancing reasoning and information verification abilities</strong>. 
+                (3) The error analysis reveals that, on general chemistry questions, ChemToolAgent makes many <strong>reasoning errors</strong>, and it's underperformance is primarily due to <strong>nuanced mistakes at intermediate stages of its problem-solving process</strong>, such as wrong reasoning steps and information oversight. Future research could improve LLM-based agents for chemistry by <strong>optimizing cognitive load and enhancing reasoning and information verification abilities</strong>. 
               </p>
 
               <p style="text-align:left">
@@ -311,8 +311,8 @@
       <!-- <h2 class="title is-3 has-text-centered">Citation</h2> -->
       <p>If our paper or related resources are valuable to your research/applications, we kindly ask for citation. Please feel free
         to contact us with any inquiries.</p>
-      <pre><code>@article{yu2024chemagent,
-    title={Tooling or Not Tooling? The Impact of Tools on Language Agents for Chemistry Problem Solving},
+      <pre><code>@article{yu2024chematoolgent,
+    title={ChemToolAgent: The Impact of Tools on Language Agents for Chemistry Problem Solving},
     author={Botao Yu and Frazier N. Baker and Ziru Chen and Garrett Herb and Boyu Gou and Daniel Adu-Ampratwum and Xia Ning and Huan Sun},
     journal={arXiv preprint arXiv:2411.07228},
     year={2024}
