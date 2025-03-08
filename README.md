@@ -1,5 +1,12 @@
-# ChemAgent
-This code repo contains ChemAgent implementation for the paper "Tooling or Not Tooling? The Impact of Tools on Language Agents for Chemistry Problem Solving".
+# ChemToolAgent
+
+This is the official code repo for the paper *ChemToolAgent: The Impact of Tools on Language Agents for Chemistry Problem Solving*.
+
+**News:**
+
+- [2025.03] Our [new arXiv version](https://arxiv.org/abs/2411.07228) now includes experimental results on SciBench. Check it out!
+- [2025.03] ChemAgent is now **ChemToolAgent**, and the paper title is also updated (previously *Tooling or Not Tooling? The Impact of Tools on Language Agents for Chemistry Problem Solving*).
+- [2025.01] Our work is accepted to NAACL 2025 Findings.
 
 ## Installation
 
@@ -43,8 +50,8 @@ You could play the agent in the Jupyter notebook `playground.ipynb`.
 If our paper or related resources prove valuable to your research, we kindly ask for citation. Please feel free to contact us with any inquiries.
 
 ```
-@article{yu2024chemagent,
-    title={Tooling or Not Tooling? The Impact of Tools on Language Agents for Chemistry Problem Solving},
+@article{yu2024chemtoolagent,
+    title={ChemToolAgent: The Impact of Tools on Language Agents for Chemistry Problem Solving},
     author={Botao Yu and Frazier N. Baker and Ziru Chen and Garrett Herb and Boyu Gou and Daniel Adu-Ampratwum and Xia Ning and Huan Sun},
     journal={arXiv preprint arXiv:2411.07228},
     year={2024}
