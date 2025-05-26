@@ -1,9 +1,10 @@
 # ChemToolAgent
 
-This is the official code repo for the paper *ChemToolAgent: The Impact of Tools on Language Agents for Chemistry Problem Solving*.
+This is the official code repo for the paper *ChemToolAgent: The Impact of Tools on Language Agents for Chemistry Problem Solving*. The agent toolkit can be found at [ChemMCP](https://osu-nlp-group.github.io/ChemMCP).
 
 **News:**
 
+- [2025.05] We release the ChemToolAgent tools in [ChemMCP](https://osu-nlp-group.github.io/ChemMCP), which is a continuously updated and MCP-compatible toolkit.
 - [2025.03] Our [new arXiv version](https://arxiv.org/abs/2411.07228) now includes experimental results on SciBench. Check it out!
 - [2025.03] ChemAgent is now **ChemToolAgent**, and the paper title is also updated (previously *Tooling or Not Tooling? The Impact of Tools on Language Agents for Chemistry Problem Solving*).
 - [2025.01] Our work is accepted to NAACL 2025 Findings.
