@@ -1,6 +1,8 @@
 # ChemToolAgent
 
-This is the official code repo for the paper *ChemToolAgent: The Impact of Tools on Language Agents for Chemistry Problem Solving*. The agent toolkit can be found at [ChemMCP](https://osu-nlp-group.github.io/ChemMCP).
+This is the official code repo for the paper *ChemToolAgent: The Impact of Tools on Language Agents for Chemistry Problem Solving*. 
+
+🚀 Most tools in ChemToolAgent are updated and released in a standalone toolkit -- [ChemMCP](https://osu-nlp-group.github.io/ChemMCP). It is an easy-to-use and extensible toolkit, compatible with MCP. We will continue to maintain and add more tools there. Join us and let's build more tools and agents together!
 
 **News:**
 
@@ -10,6 +12,10 @@ This is the official code repo for the paper *ChemToolAgent: The Impact of Tools
 - [2025.01] Our work is accepted to NAACL 2025 Findings.
 
 ## Installation
+
+**Download Checkpoints**
+
+Please download the checkpoints for the property prediction tools from [here](https://zenodo.org/records/15299461). Unzip and put it at `chemagent/tools/property_prediction/checkpoints`.
 
 **API Keys**
 
